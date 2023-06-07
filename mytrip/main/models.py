@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 # schema 정의
-class hotel(models.Model):
+class barrier_free_hotel(models.Model):
     id = models.IntegerField()
     FCLTY_NM = models.CharField()
     RDNMADR_NM = models.CharField()
