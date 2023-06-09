@@ -4,7 +4,7 @@ from django.db import models
 
 # schema 정의
 class barrier_free_hotel(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     FCLTY_NM = models.CharField()
     RDNMADR_NM = models.CharField()
     CTPRVN_CD = models.IntegerField()
