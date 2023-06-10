@@ -173,6 +173,6 @@ poetry.toml
 # LSP config files
 pyrightconfig.json
 
-/mytrip/config/settings.py
+./mytrip/config/settings.py
 
 # End of https://www.toptal.com/developers/gitignore/api/python
