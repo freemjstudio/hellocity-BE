@@ -9,8 +9,6 @@ def index(request):
     return HttpResponse(" hello city team ")
 
 def hotelListAPI(request):
-    queryset = categorized.objects.all()
-    print(queryset)
     # def get(self, request):
     #     queryset = barrier_free_hotel.objects.all()
     #     print(queryset)
@@ -18,6 +16,7 @@ def hotelListAPI(request):
     #     return Response(serializer.data)
     hotel_list = barrier_free_hotel.objects.all()
     context = {'hotel_list':hotel_list}
+    print(context)
     return render(request, 'main/hotel_list.html', context)
 
 def dataListAPI(request):
