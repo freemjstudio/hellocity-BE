@@ -13,3 +13,4 @@ class CategorySerializer(serializers.ModelSerializer):
         model = categorized
         fields = '__all__'
 
+

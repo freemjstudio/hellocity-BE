@@ -4,47 +4,54 @@ from rest_framework.response import Response
 from .models import barrier_free_hotel, categorized
 from rest_framework.views import APIView
 from .serializers import HotelSerializer, CategorySerializer
+from rest_framework import viewsets
+
+from django.core import serializers
 
 def index(request):
     return HttpResponse(" hello city team backend")
 
+class hotelViewSet(viewsets.ModelViewSet):
+    queryset = barrier_free_hotel.objects.all()
+    serializer_class = HotelSerializer
+
+class itemViewSet(viewsets.ModelViewSet):
+    queryset = categorized.objects.all()
+    serializer_class = CategorySerializer
+
+
 def hotelListAPI(request):
-    # def get(self, request):
-    #     queryset = barrier_free_hotel.objects.all()
-    #     print(queryset)
-    #     serializer = HotelSerializer(queryset, many=True)
-    #     return Response(serializer.data)
-    hotel_list = barrier_free_hotel.objects.all()
+    hotel_list = barrier_free_hotel.objects.all().values()
     context = {'hotel_list':hotel_list}
     print(context)
     return render(request, 'main/hotel_list.html', context)
 
 def dataListAPI(request):
-    data_list = categorized.objects.all()
+    data_list = categorized.objects.all().values()
     context = {'data_list':data_list}
     print(context)
     return render(request, 'main/data_list.html', context)
 
 def activityAPI(request):
-    activity_list = categorized.objects.filter(category='액티비티')
+    activity_list = categorized.objects.filter(category='액티비티').values()
     context = {'activity_list': activity_list}
     print(context)
     return render(request, 'main/activity_list.html', context)
 
 def healingAPI(request):
-    healing_list = categorized.objects.filter(category='힐링')
-    context = {'activity_list': healing_list}
+    healing_list = categorized.objects.filter(category='힐링').values()
+    context = {'healing_list': healing_list}
     print(context)
     return render(request, 'main/healing_list.html', context)
 
 def restaurantAPI(request):
-    restaurant_list = categorized.objects.filter(category='맛집')
+    restaurant_list = categorized.objects.filter(category='맛집').values()
     context = {'restaurant_list':restaurant_list}
     print(context)
     return render(request, 'main/restaurant_list.html', context)
 
 def exploreAPI(request):
-    explore_list = categorized.objects.filter(category='탐구')
+    explore_list = categorized.objects.filter(category='탐구').values()
     context = {'explore_list':explore_list}
     print(context)
     return render(request, 'main/explore_list.html', context)
