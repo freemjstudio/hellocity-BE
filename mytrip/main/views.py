@@ -26,7 +26,9 @@ def dataListAPI(request):
 
 def activityAPI(request):
     activity_list = categorized.objects.filter(category='액티비티').values()
-    context = {'activity_list': activity_list, }
+    # json 따로 나눌 수 있는지 ?
+
+    context = {'activity_list': activity_list}
     # print(context)
     return render(request, 'main/activity_list.html', context)
 
