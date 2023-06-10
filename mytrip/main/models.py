@@ -4,7 +4,7 @@ from django.db import models
 
 # schema 정의
 class barrier_free_hotel(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     FCLTY_NM = models.CharField(max_length=100)
     RDNMADR_NM = models.CharField(max_length=100)
     CTPRVN_CD = models.IntegerField()
@@ -21,17 +21,24 @@ class barrier_free_hotel(models.Model):
     DSPSN_FCLTY_AT = models.CharField(max_length=100)
     BASE_DE = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.FCLTY_NM
+
 class categorized(models.Model):
-    field1 = models.IntegerField()
+    id = models.AutoField(primary_key=True)
+    field1 = models.IntegerField(null=True)
     title = models.CharField(max_length=100)
-    addr1 = models.CharField(max_length=100)
-    addr2 = models.CharField(max_length=100)
-    zipcode = models.IntegerField()
-    contentid = models.IntegerField()
-    contenttypeid = models.IntegerField()
-    firstimage = models.CharField(max_length=100)
-    firstimage2 = models.CharField(max_length=100)
-    mapx = models.FloatField()
-    mapy = models.FloatField()
-    tel = models.CharField(max_length=100)
-    category = models.CharField(max_length=100)
+    addr1 = models.CharField(max_length=100, null=True)
+    addr2 = models.CharField(max_length=100, null=True)
+    zipcode = models.IntegerField(null=True)
+    contentid = models.IntegerField(null=True)
+    contenttypeid = models.IntegerField(null=True)
+    firstimage = models.CharField(max_length=100, null=True)
+    firstimage2 = models.CharField(max_length=100, null=True)
+    mapx = models.FloatField(null=True)
+    mapy = models.FloatField(null=True)
+    tel = models.CharField(max_length=100, null=True)
+    category = models.CharField(max_length=100, null=True)
+
+    def __str__(self):
+        return self.title
