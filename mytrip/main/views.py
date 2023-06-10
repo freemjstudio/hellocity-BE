@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.response import Response
-from .models import barrier_free_hotel, categorized
+from .models import barrier_free_hotel, categorized, transportation
 from rest_framework.views import APIView
 from .serializers import HotelSerializer, CategorySerializer
 from rest_framework import viewsets
@@ -26,7 +26,7 @@ def dataListAPI(request):
 
 def activityAPI(request):
     activity_list = categorized.objects.filter(category='액티비티').values()
-    context = {'activity_list': activity_list}
+    context = {'activity_list': activity_list, }
     # print(context)
     return render(request, 'main/activity_list.html', context)
 
