@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from .serializers import HotelSerializer, CategorySerializer
 
 def index(request):
-    return HttpResponse(" hello city team ")
+    return HttpResponse(" hello city team backend")
 
 def hotelListAPI(request):
     # def get(self, request):
@@ -25,14 +25,26 @@ def dataListAPI(request):
     print(context)
     return render(request, 'main/data_list.html', context)
 
-def get_activity(request):
-    return
+def activityAPI(request):
+    activity_list = categorized.objects.filter(category='액티비티')
+    context = {'activity_list': activity_list}
+    print(context)
+    return render(request, 'main/activity_list.html', context)
 
-def get_healing(request):
-    return
+def healingAPI(request):
+    healing_list = categorized.objects.filter(category='힐링')
+    context = {'activity_list': healing_list}
+    print(context)
+    return render(request, 'main/healing_list.html', context)
 
-def get_restaurant(request):
-    return
+def restaurantAPI(request):
+    restaurant_list = categorized.objects.filter(category='맛집')
+    context = {'restaurant_list':restaurant_list}
+    print(context)
+    return render(request, 'main/restaurant_list.html', context)
 
-def get_explore(request):
-    return
+def exploreAPI(request):
+    explore_list = categorized.objects.filter(category='탐구')
+    context = {'explore_list':explore_list}
+    print(context)
+    return render(request, 'main/explore_list.html', context)
