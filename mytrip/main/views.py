@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from rest_framework.response import Response
+# from rest_framework.response import Response
 from .models import barrier_free_hotel, categorized, transportation
-from rest_framework.views import APIView
-from .serializers import HotelSerializer, CategorySerializer
-from rest_framework import viewsets
+# from rest_framework.views import APIView
+# from .serializers import HotelSerializer, CategorySerializer
+# from rest_framework import viewsets
 
-from django.core import serializers
+# from django.core import serializers
 
 def index(request):
     return HttpResponse(" hello city team backend")

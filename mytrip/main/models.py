@@ -102,4 +102,23 @@ class transportation(models.Model):
     babysparechair = models.CharField(max_length=500, null=True)
     infantsfamilyetc = models.CharField(max_length=500, null=True)
 
-
+# 교통약자 지하철 역 편의 시설
+class station_info(models.Model):
+    course1 = models.CharField(max_length=100)
+    course2 = models.CharField(max_length=100)
+    station = models.CharField(max_length=100)
+    no = models.IntegerField
+    telno_info = models.CharField()
+    station_image = models.CharField()
+    exit_info = models.CharField(null=True)
+    line
+    icon_path
+    elevater
+    elevater_txt
+    time_info2
+    time_info3
+    line_name
+    time_info1
+    station_image2
+    time_info4
+    useyn
